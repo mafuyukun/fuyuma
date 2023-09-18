@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="jumbotron" style="background-color: #6f42c1; padding: 30px; color: white;">
+    <h3>Giriş Yap</h3>
+    <hr>
+    {% from "formhelpers.html" import render_field %}
+    <form method = "post">
+        {{ render_field(form.username, class="form-control", placeholder="Kullanıcı Adı") }}
+        {{ render_field(form.password, class="form-control", placeholder="Parola") }}
+        <button type="submit" class="btn btn-primary">Giriş Yap</button>
+    </form>
+</div>
+
+
+{% endblock body %}

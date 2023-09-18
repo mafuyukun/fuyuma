@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="jumbotron" style="background-color: #6f42c1; padding: 30px; color: white;">
+    <h2>Gönderiyi Düzenle</h2>
+    <form method="POST" action="/update_post/{{ post.id }}">
+        <div class="mb-3">
+            <label for="title" class="form-label">Başlık</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{ post.title }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">İçerik</label>
+            <textarea class="form-control" id="content" name="content" rows="4" required>{{ post.content }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Gönderiyi Kaydet</button>
+    </form>
+</div>
+{% endblock body %}

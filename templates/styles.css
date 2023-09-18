@@ -1,0 +1,21 @@
+/* Custom Styles */
+/* Özelleştirilmiş renkler */
+body {
+    background-color: #f0f0f0;
+}
+
+.navbar {
+    background-color: #3498db;
+}
+
+.btn-primary {
+    background-color: #e74c3c;
+    border-color: #c0392b;
+}
+
+/* Diğer özelleştirmeler */
+/* Örneğin başlık yazı tipi ve boyutu */
+h1, h2, h3 {
+    font-family: "Arial", sans-serif;
+    color: #333;
+}

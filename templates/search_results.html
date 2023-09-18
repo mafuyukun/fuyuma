@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <h2>Search Results for "{{ keyword }}"</h2>
+  <ul>
+    {% for post in found_posts %}
+      <li>
+        <a href="{{ url_for('post_detail', post_id=post.id) }}">{{ post.title }}</a><br>
+        <small>Author: {{ post.author }}</small><br>
+        <small>Created Date: {{ post.created_date }}</small>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

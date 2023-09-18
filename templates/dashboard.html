@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="jumbotron" style="background-color: #6f42c1; padding: 30px; color: white;">
+<h4>Hesabım</h4>
+<h6>Hoş Geldiniz, {{session["username"]}} 🔥</h6>
+<hr>
+<a href="/posts" class = "btn btn-info btn-lg btn-block">Tüm Gönderileri Görüntüle</a>
+<a href="/sharepost" class = "btn btn-info btn-lg btn-block">Gönderi Paylaş</a>
+<br>
+<h4>Benim Gönderilerim</h4>
+</div>
+
+
+{% if myposts %}
+<ul class="list-group">
+    {% for mypost in myposts  %}
+    <div class="card" style="width: 69rem;">
+        <div class="card-body">
+          <h5 class="">{{mypost.title}}</h5>
+          <hr>
+          <h6 class="card-subtitle mb-2 text-muted">Oluşturulma Tarihi: {{mypost.created_date}}</h6>
+          <hr>
+          
+          <p class="card-text">{{mypost.content}}</p>
+          <br>
+            <form method="POST" action="/delete_post/{{ mypost.id }}">
+            <input class="btn btn-danger" type="submit" value="Sil">
+            </form>
+            <br>
+            <a href="/edit_post/{{ mypost.id }}" class="btn btn-warning">Düzenle</a>
+
+        
+        
+        </div>
+      </div>
+      <br>
+    {% endfor %}
+  </ul>
+{% else %}
+<div class = "alert alert-danger">Henüz gönderiniz bulunmuyor.</div>
+{% endif %}
+
+
+
+{% endblock body %}

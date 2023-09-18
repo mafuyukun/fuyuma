@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<div class="jumbotron" style="background-color: #6f42c1; padding: 30px; color: rgb(255, 255, 255); text-align: center;">
+<h3>Gönderiler</h3>
+</div>
+{% if allposts %}
+
+<ul class="list-group">
+    {% for allpost in allposts  %}
+    <div class="card" style="width: 69rem;">
+        <div class="card-body">
+          <h5 class="">{{allpost.title}}</h5>
+          <hr>
+          <h6 class="card-subtitle mb-2 text-muted">Oluşturulma Tarihi: {{allpost.created_date}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">Gönderen: {{allpost.author}}</h6>
+          <hr>
+          <p class="card-text">{{allpost.content}}</p>
+          <br>
+          <input class="btn btn-primary" type="button" value=" 🤍 Beğen">
+          <input class="btn btn-primary" type="button" value=" 💬 Yorum Yap">
+        
+        </div>
+      </div>
+      <br>
+    {% endfor %}
+  </ul>
+
+{% else %}
+<div class = "alert alert-danger">Henüz Gönderi Bulunmuyor</div>
+{% endif %}
+
+{% endblock body %}

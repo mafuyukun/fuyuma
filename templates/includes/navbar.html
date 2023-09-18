@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #6f42c1; color: white;>
+    < class = "navbar-brand" href= "/">FUYU Blog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Anasayfa</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/about">Hakkımızda</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/posts">Gönderiler</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+          <form class="d-flex" role="search" method ="POST" action ="/search">
+            <input class="form-control me-2" type= "search" placeholder="İçerik Ara" aria-label="Search" name = "keyword">
+            <button class="btn btn-outline-primary" type="submit">Ara</button>
+          </form>
+      
+      
+        {% if session["logged_in"] %}
+        <li class="nav-item active">
+          <a class="nav-link" href="/dashboard">Hesabım</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/logout">Çıkış Yap</a>
+        </li>
+        {% else %}
+        <li class="nav-item active">
+          <a class="nav-link" href="/login">Giriş Yap</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/register">Kayıt Ol</a>
+        </li>
+
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
